@@ -11,8 +11,9 @@
 
 ### 2.1 客户侧：上报 Machine ID（一次性）
 ```bash
-python3 -m pip install -U 'pyarmor==8.5.12'
-python3 -m pyarmor.cli.hdinfo | sed -n '1p' | sed "s/.*'\(.*\)'.*/\1/" | tee /tmp/machine_id.txt
+yum install -y python3.11 python3.11-devel python3.11-pip gcc
+pip3.11 install pyarmor==8.5.12
+python3.11 -m pyarmor.cli.hdinfo | sed -n '1p' | sed "s/.*'\(.*\)'.*/\1/" | tee /tmp/machine_id.txt
 cat /tmp/machine_id.txt   # 将这一行 Machine ID 发给供应商
 ```
 
